@@ -1,162 +1,85 @@
 <!DOCTIPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="assets/img/icon.png">
+    <html>
 
-    <title>Aplikasi Piagam</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="assets/img/icon.png">
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <title>Aplikasi Piagam</title>
 
-    <!-- Custom styles for this template -->
-    <link href="assets/style.css" rel="stylesheet">
-	<style>
-		body {
-    background-color: #f4f4f4;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-}
+        <!-- Bootstrap core CSS -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-.navbar {
-    background-color: #3498db;
-    border: none;
-    margin-bottom: 150px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+        <!-- Custom styles for this template -->
 
-.navbar-brand {
-    color: #ffffff !important;
-    font-weight: bold;
-}
+        <link rel="stylesheet" href="assets/login.css">
 
-.container {
-    max-width: 2000px;
-}
+    </head>
 
-.panel {
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+    <body>
 
-.panel-primary .panel-heading {
-    background-color: #3498db;
-    color: #ffffff;
-    text-align: center;
-    padding: 15px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.panel-danger .panel-heading {
-    background-color: #e74c3c;
-    color: #ffffff;
-    text-align: center;
-    padding: 15px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.form-control {
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-.btn-primary, .btn-danger {
-    border-radius: 4px;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover, .btn-danger:hover {
-    opacity: 0.9;
-}
-
-.footer {
-    background-color: #f8f9fa;
-    padding: 0px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.alert {
-    border-radius: 4px;
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-}
-	</style>
-</head>
-<body>
-<nav class="navbar navbar-default">
-  <div class="col-md-5 col-md-offset-5">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="./">Aplikasi Memo</a>
-        </div>
-    </div>
-</nav>
-
-<div class="container">
-    <div class="col-md-4 col-md-offset-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <center><h3 class="panel-title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> LOGIN PETUGAS</h3></center>
-            </div>
-            <div class="panel-body">
-            <?php 
-                if(isset($_GET['error'])){
-                    $error = $_GET['error'];
-                        ?>
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <strong>Error!</strong> <?php echo $error; ?>
-                        </div>
+        <div class="container">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <center>
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                LOGIN PETUGAS</h3>
+                        </center>
+                    </div>
+                    <div class="panel-body">
                         <?php
-                }
-                ?>
+                        if (isset($_GET['error'])) {
+                            $error = $_GET['error'];
+                            ?>
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <strong>Error!</strong> <?php echo $error; ?>
+                            </div>
+                            <?php
+                        }
+                        ?>
 
-                <form method="post" action="validation.php" role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="username" autocomplete="off" placeholder="Username" />
+                        <form method="post" action="validation.php" role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" autocomplete="off"
+                                    placeholder="Username" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Masuk" />
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Password" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Masuk" />
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted"><a href="https://bikinbagoes.my.id" target="_blank">bikinbagoes.my.id</a> Tahun 2024</p>
-    </div>
-</footer>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted"><a href="https://bikinbagoes.my.id" target="_blank">bikinbagoes.my.id</a> Tahun
+                    2024</p>
+            </div>
+        </footer>
 
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-</body>
-</html>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
+    </body>
+
+    </html>

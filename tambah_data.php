@@ -1,9 +1,10 @@
 <?php include "header.php"; ?>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="assets/tambah_data.css">
 
+<div class="content-wrapper">
 <div class="container">
-<div class="row">
 		<div class="panel panel-danger">
 			<div class="panel-heading">
 				<h3 class="panel-title">Tambah Data Memo Donor</h3>

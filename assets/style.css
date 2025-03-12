@@ -9,11 +9,8 @@ body {
   margin-bottom: 60px;
 }
 
-
 /* Custom page CSS
 -------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
 body > .container {
   padding: 60px 15px 0;
 }
@@ -38,4 +35,54 @@ body > .container {
 
 code {
   font-size: 80%;
+}
+
+/* Custom Navbar Styles */
+.navbar {
+  background-color: #007bff; /* Warna latar navbar */
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+/* Ubah navbar-header menjadi flex container agar tautan tersusun secara horizontal */
+.navbar .navbar-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Styling untuk setiap link navbar-brand */
+.navbar .navbar-header a.navbar-brand {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px 20px;
+  display: inline-block;
+}
+
+.navbar .navbar-header a.navbar-brand:hover,
+.navbar .navbar-header a.navbar-brand:focus {
+  color: #eaeaea;
+}
+
+/* Jika menggunakan struktur navbar dengan list (ul > li > a) */
+.navbar .navbar-nav > li > a {
+  color: #fff;
+  font-size: 1rem;
+  padding: 15px 20px;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Styling tombol toggle untuk tampilan mobile (jika digunakan) */
+.navbar-default .navbar-toggle {
+  border-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
 }

@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  /* Aturan hanya untuk konten utama */
+  .content-wrapper .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content-wrapper .panel {
+    border: 1px solid #dc3545;
+    border-radius: 5px;
+  }
+  
+  .content-wrapper .panel-heading {
+    background-color: #dc3545;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  .content-wrapper .panel-title {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .content-wrapper .table {
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .content-wrapper .table td {
+    padding: 10px;
+  }
+  
+  .content-wrapper .table .form-control {
+    width: calc(100% - 20px);
+  }
+  
+  .content-wrapper .btn {
+    margin-top: 10px;
+  }
+  
+  .content-wrapper .btn-primary {
+    background-color: #007bff; /* Warna tombol simpan */
+    border: none;
+  }
+  
+  .content-wrapper .btn-danger {
+    background-color: #dc3545; /* Warna tombol kembali */
+    border: none;
+  }
+  
+  .content-wrapper textarea.form-control {
+    resize: none; /* Menonaktifkan resize pada textarea */
+  }
+  
+  .content-wrapper hr {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+  }
+  
+  .content-wrapper h3 {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  

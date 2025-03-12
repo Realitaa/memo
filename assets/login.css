@@ -1,0 +1,84 @@
+/* assets/login.css */
+
+/* Pastikan html dan body memenuhi tinggi layar penuh */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Gaya dasar body */
+  body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Mengatur container agar form login berada di tengah layar */
+  .container {
+    flex: 1; /* Mengisi ruang yang tersisa */
+    display: flex;
+    align-items: center;    /* Vertikal */
+    justify-content: center; /* Horizontal */
+  }
+  
+  /* Styling untuk panel login */
+  .panel {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .panel-primary {
+    border: none;
+  }
+  
+  /* Panel heading untuk judul login */
+  .panel-primary > .panel-heading {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 15px;
+  }
+  
+  .panel-primary > .panel-heading .panel-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Panel body untuk form login */
+  .panel-body {
+    padding: 20px;
+    background-color: #fff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  /* Styling untuk input form */
+  .form-control {
+    border-radius: 4px;
+  }
+  
+  /* Pastikan tombol submit memenuhi lebar container */
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Footer tetap berada di bawah halaman */
+  .footer {
+    background-color: #f5f5f5;
+    padding: 15px 0;
+    border-top: 1px solid #e5e5e5;
+  }
+  
+  .footer .container {
+    text-align: center;
+  }
+  
