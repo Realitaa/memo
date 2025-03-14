@@ -315,6 +315,10 @@ if (!($_GET['id'])) {
                     <td>: <?php echo $d['keterangan']; ?></td>
                 </tr>
             </table>
+            <div class="catatan">
+                <p>Mohon agar ditindaklanjuti. Atas perhatian dan kerjasamanya diucapkan terima kasih.</p>
+                <p><strong>Kasi P2D2S</strong></p>
+            </div>
         </div>
     </div>
 
