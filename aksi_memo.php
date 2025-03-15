@@ -24,11 +24,9 @@ if(isset($_GET['act'])){
 		if($nomor=='' || $tanggal=='' || $nama_instansi=='' || $alamat=='' || $target=='' || $bus=='' || $mulai=='' || $selesai=='' || $telepon==''){
 			header('location:tambah_data.php');
 		}else{		
-
-			$no = (int)explode('/', $nomor);
 			//proses simpan data oleh admin
 			$simpan = mysqli_query($konek, "INSERT INTO dmemo (nomor, tanggal, nama_instansi, alamat, target_donor, bus, mulai, selesai, telepon, piagam, keterangan) 
-				VALUES ('$no', '$tanggal', '$nama_instansi', '$alamat', '$target', '$bus', '$mulai', '$selesai', '$telepon', '$piagam', '$keterangan')");
+				VALUES ('$nomor', '$tanggal', '$nama_instansi', '$alamat', '$target', '$bus', '$mulai', '$selesai', '$telepon', '$piagam', '$keterangan')");
 
 			if ($simpan) {
 				header('location:data_memo.php');

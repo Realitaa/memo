@@ -172,7 +172,6 @@ if (!($_GET['id'])) {
          WHERE id='$_GET[id]'"
     );
     $d = mysqli_fetch_array($sql);
-    $localMemo = LocalMemo($d['nomor'], $d['tanggal']);
     ?>
 
     <div class="page">
@@ -192,7 +191,7 @@ if (!($_GET['id'])) {
             <table class="memo-info">
                 <tr>
                     <td>No</td>
-                    <td>: <?php echo $localMemo; ?></td>
+                    <td>: <?php echo $d['nomor']; ?></td>
                     <td>Perihal</td>
                     <td>: Kegiatan Donor Darah</td>
                 </tr>
@@ -266,7 +265,7 @@ if (!($_GET['id'])) {
             <table class="memo-info">
                 <tr>
                     <td>No</td>
-                    <td>: <?php echo $localMemo; ?></td>
+                    <td>: <?php echo $d['nomor']; ?></td>
                     <td>Perihal</td>
                     <td>: Kegiatan Donor Darah</td>
                 </tr>

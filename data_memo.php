@@ -22,9 +22,9 @@
                 </h3>
             </div>
             <div class="panel-body">
-                <div style="margin-bottom: 15px;">
+                <!-- <div style="margin-bottom: 15px;">
                     <input type="text" id="search-input" class="form-control" placeholder="Search..." style="width: auto; display: inline-block;">
-                </div>
+                </div> -->
                 
 
                 <table class="table table-bordered table-striped table-responsive">
@@ -61,14 +61,12 @@
 <script>
     $(document).ready(function() {
         // Fungsi untuk memfilter dan memuat data
-        function loadData(tahun, kategori, searchValue) {
+        function loadData(tahun) {
             $.ajax({
                 url: 'get_memo_data.php', // Buat file PHP terpisah untuk mengambil data
                 type: 'GET',
                 data: {
                     tahun: tahun,
-                    kategori: kategori,
-                    search: searchValue
                 },
                 success: function(response) {
                     $('#data-table').html(response); // Menampilkan data dalam tabel
@@ -79,34 +77,15 @@
             });
         }
 
-        // Event untuk filter kategori
-        $('#filter-kategori').on('change', function() {
-            const kategori = $(this).val();
-            const searchValue = $('#search-input').val().toLowerCase();
-            const selectedYear = $('#tahun').val();
-            loadData(selectedYear, kategori, searchValue); // Memuat data dengan filter kategori
-        });
-
-        // Event untuk pencarian
-        $('#search-input').on('keyup', function() {
-            const searchValue = $(this).val().toLowerCase();
-            const kategori = $('#filter-kategori').val();
-            const selectedYear = $('#tahun').val();
-            loadData(selectedYear, kategori, searchValue); // Memuat data dengan pencarian
-        });
-
         // Menangani perubahan tahun
         $('#tahun').change(function() {
             const selectedYear = $(this).val();
-            const kategori = $('#filter-kategori').val();
-            const searchValue = $('#search-input').val().toLowerCase();
-            loadData(selectedYear, kategori, searchValue); // Memuat data berdasarkan tahun
+            loadData(selectedYear); // Memuat data berdasarkan tahun
         });
 
         // Memuat data pertama kali dengan tahun default
         let selectedYear = $('#tahun').val();
-        let kategori = $('#filter-kategori').val();
-        let searchValue = $('#search-input').val().toLowerCase();
-        loadData(selectedYear, kategori, searchValue);
+        // let searchValue = $('#search-input').val().toLowerCase();
+        loadData(selectedYear);
     });
 </script>

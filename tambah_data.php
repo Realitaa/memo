@@ -15,68 +15,110 @@
 					<table class="table">
 						<?php
 							// Ambil nilai nomor terbaru dari tabel dmemo
-							$sql = mysqli_query($konek, "SELECT nomor, MONTH(tanggal) AS bulan FROM dmemo ORDER BY id DESC LIMIT 1");
+							// 0001/PMI.MDN/P2D2S/MEMO/III/2025
+							$sql = mysqli_query($konek, "SELECT LEFT(nomor, 4) AS no, RIGHT(nomor, 4) AS year FROM dmemo ORDER BY id DESC LIMIT 1");
 							$row = mysqli_fetch_assoc($sql); // Ambil hasil sebagai array asosiatif
-							$bulan = $row['bulan'] ?? null;
-							$last_memo = $row['nomor'] ?? null + 1;
+							
+							$last_memo = intval($row['no']); // Ambil nilai nomor terakhir
+							$year = $row['year']; // Ambil tahun terakhir
 
-							if ($bulan == date('m')) {
+							if ($year == date('Y')) {
 								// Tambahkan format empat digit
 								$formatted_memo = sprintf('%04d', $last_memo + 1);
 							} else {
 								// Reset menjadi 0001
 								$formatted_memo = "0001";
 							}
+
+							// Roman month
+							switch (date("m")) {
+								case 1:
+									$month = "I";
+									break;
+								case 2:
+									$month = "II";
+									break;
+								case 3:
+									$month = "III";
+									break;
+								case 4:
+									$month = "IV";
+									break;
+								case 5:
+									$month = "V";
+									break;
+								case 6:
+									$month = "VI";
+									break;
+								case 7:
+									$month = "VII";
+									break;
+								case 8:
+									$month = "VIII";
+									break;
+								case 9:
+									$month = "IX";
+									break;
+								case 10:
+									$month = "X";
+									break;
+								case 11:
+									$month = "XI";
+									break;
+								case 12:
+									$month = "XII";
+									break;
+							}
 							
 						?>
 						<tr>
 							<td width="160px">Nomor Memo</td>
-							<td><div class="col-md-6"><input class="form-control" type="text" name="nomor" value="<?= $formatted_memo . '/' . date('m') ?>" required /></div></td>
+							<td><div class="col-md-8"><input class="form-control" type="text" name="nomor" value="<?= $formatted_memo . "/PMI.MDN/P2D2S/MEMO/" . $month . "/" . date('Y') ?>" required /></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Tanggal Donor</td>
-							<td><div class="col-md-6"><input class="form-control" type="text" name="tanggal" id="tanggal"/></div></td>
+							<td><div class="col-md-8"><input class="form-control" type="text" name="tanggal" id="tanggal"/></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Nama Instansi</td>
-							<td><div class="col-md-6"><input class="form-control" type="text" name="nama" autofocus required /></div></td>
+							<td><div class="col-md-8"><input class="form-control" type="text" name="nama" autofocus required /></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Alamat</td>
-							<td><div class="col-md-6"><textarea class="form-control" name="alamat" required ></textarea></div></td>
+							<td><div class="col-md-8"><textarea class="form-control" name="alamat" required ></textarea></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Target Donor</td>
-							<td><div class="col-md-6"><input class="form-control" type="number" name="target" required /></div></td>
+							<td><div class="col-md-8"><input class="form-control" type="number" name="target" required /></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Bus</td>
-							<td><div class="col-md-6"><input class="form-control" type="number" name="bus" required /></div></td>
+							<td><div class="col-md-8"><input class="form-control" type="number" name="bus" required /></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Mulai</td>
-							<td><div class="col-md-6"><input class="form-control time" type="text" name="mulai" required /></div></td>
+							<td><div class="col-md-8"><input class="form-control time" type="text" name="mulai" required /></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Selesai</td>
-							<td><div class="col-md-6"><input class="form-control time" type="text" name="selesai" required /></div></td>
+							<td><div class="col-md-8"><input class="form-control time" type="text" name="selesai" required /></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Telepon</td>
-							<td><div class="col-md-6"><input class="form-control" type="text" name="telepon" required /></div></td>
+							<td><div class="col-md-8"><input class="form-control" type="text" name="telepon" required /></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Piagam</td>
-							<td><div class="col-md-6"><input class="form-control" type="text" name="piagam" /></div></td>
+							<td><div class="col-md-8"><input class="form-control" type="text" name="piagam" /></div></td>
 						</tr>
 						<tr>
 							<td width="160px">Keterangan</td>
-							<td><div class="col-md-6"><textarea class="form-control" name="keterangan" ></textarea></div></td>
+							<td><div class="col-md-8"><textarea class="form-control" name="keterangan" ></textarea></div></td>
 						</tr>
 						<tr>
 							<td></td>
 							<td>
-							<div class="col-md-6">
+							<div class="col-md-8">
 								<input class="btn btn-primary" type="submit" value="Simpan" />
 								<a class="btn btn-danger" href="data_piagam.php">Kembali</a>
 								</div>

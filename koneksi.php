@@ -32,19 +32,4 @@ function LocalDate($tanggal) {
     return $fmt->format($dateTime);
 }
 
-function LocalMemo(int $nomor, $tanggal) {
-    // Konversi tanggal ke DateTime untuk mengambil bulannya
-    $dateTime = DateTime::createFromFormat('Y-m-d', $tanggal);
-    $bulan = $dateTime->format('m'); // Mendapatkan bulan dalam format angka (01-12)
-    
-    // Format nomor memo
-    return sprintf('%04d', $nomor) . '/' . $bulan;
-}
-
-// Contoh penggunaan
-// $tanggal = '2025-03-15';
-// echo LocalDate($tanggal); // Output: Sabtu, 15 Maret 2025
-// echo "\n";
-// echo LocalMemo(5, $tanggal); // Output: 0005/03
-
 ?>
