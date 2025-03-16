@@ -19,7 +19,9 @@
 							$sql = mysqli_query($konek, "SELECT LEFT(nomor, 4) AS no, RIGHT(nomor, 4) AS year FROM dmemo ORDER BY id DESC LIMIT 1");
 							$row = mysqli_fetch_assoc($sql); // Ambil hasil sebagai array asosiatif
 							
-							$last_memo = intval($row['no']) ?? 0; // Ambil nilai nomor terakhir
+							if ($row) {
+								$last_memo = intval($row['no']); // Ambil nilai nomor terakhir
+							}
 							$year = $row['year'] ?? null; // Ambil tahun terakhir
 
 							if ($year == date('Y')) {
