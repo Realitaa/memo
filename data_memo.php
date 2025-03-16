@@ -63,7 +63,7 @@
         // Fungsi untuk memfilter dan memuat data
         function loadData(tahun) {
             $.ajax({
-                url: 'get_memo_data.php', // Buat file PHP terpisah untuk mengambil data
+                url: 'get_memo_data2.php', // Buat file PHP terpisah untuk mengambil data
                 type: 'GET',
                 data: {
                     tahun: tahun,
