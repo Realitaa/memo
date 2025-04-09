@@ -1,26 +1,14 @@
 <?php
 include 'koneksi.php'; 
 
-$tahun = isset($_GET['tahun']) ? $_GET['tahun'] : 'Semua';
-// $search = isset($_GET['search']) ? $_GET['search'] : '';
-
 // Query untuk memfilter data berdasarkan tahun, kategori, dan pencarian
 $query = "SELECT * FROM dmemo WHERE 1";
 
-// Filter berdasarkan tahun
-if ($tahun != 'Semua') {
-    $query .= " AND YEAR(tanggal) = '$tahun'";
+// Filter berdasarkan tanggal
+if (isset($_GET['date'])) {
+    $date = $_GET['date'];
+    $query .= " AND tanggal = '$date'";
 }
-
-// Filter berdasarkan kategori
-// if (!empty($kategori)) {
-//     $query .= " AND kategori = '$kategori'";
-// }
-
-// // Filter berdasarkan pencarian
-// if (!empty($search)) {
-//     $query .= " AND (nama_instansi LIKE '%$search%')";
-// }
 
 $query .= " ORDER BY id DESC"; // Urutkan berdasarkan ID secara DESC
 

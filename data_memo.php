@@ -7,24 +7,23 @@
     <div class="row">
         <div class="panel panel-danger">
             <div class="panel-heading">
-                <h3 class="panel-title">Data Memo Tahun
-                    <select name="tahun" id="tahun" style="color: black;">
-                        <option value="Semua">Semua</option>
-                        <?php
-                        $currentYear = date('Y'); // Ambil tahun saat ini
-                        $sql = mysqli_query($konek, "SELECT DISTINCT YEAR(tanggal) AS tahun FROM dmemo ORDER BY tahun DESC");
-                        while ($d = mysqli_fetch_array($sql)) {
-                            $selected = ($d['tahun'] == $currentYear) ? "selected" : "";
-                            echo "<option value='$d[tahun]' $selected>$d[tahun]</option>";
-                        }
-                        ?>
-                    </select>
-                </h3>
+                <h3 class="panel-title">Data Memo</h3>
             </div>
             <div class="panel-body">
-                <!-- <div style="margin-bottom: 15px;">
-                    <input type="text" id="search-input" class="form-control" placeholder="Search..." style="width: auto; display: inline-block;">
-                </div> -->
+                <div style="margin-bottom: 15px;">
+                    <div style="position: relative; display: inline-block; width: 250px;">
+                        <input type="text" id="date-input" class="form-control" placeholder="Cari berdasarkan tanggal..." style="width: 100%;">
+                        <button type="button" id="clear-date" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 16px; cursor: pointer;">&times;</button>
+                    </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('#clear-date').click(function() {
+                                $('#date-input').val('').trigger('change'); // Kosongkan input dan trigger event change
+                            });
+                        });
+                    </script>
+                </div>
                 
 
                 <table class="table table-bordered table-striped table-responsive">
@@ -59,14 +58,18 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
+    flatpickr("#date-input", {
+		dateFormat: "Y-m-d",
+	});
+
     $(document).ready(function() {
         // Fungsi untuk memfilter dan memuat data
-        function loadData(tahun) {
+        function loadData(date) {
             $.ajax({
-                url: 'get_memo_data2.php', // Buat file PHP terpisah untuk mengambil data
+                url: 'get_memo_data.php', // Buat file PHP terpisah untuk mengambil data
                 type: 'GET',
                 data: {
-                    tahun: tahun,
+                    date: date,
                 },
                 success: function(response) {
                     $('#data-table').html(response); // Menampilkan data dalam tabel
@@ -77,10 +80,19 @@
             });
         }
 
-        // Menangani perubahan tahun
-        $('#tahun').change(function() {
-            const selectedYear = $(this).val();
-            loadData(selectedYear); // Memuat data berdasarkan tahun
+        //Mereset tanggal
+        $('#clear-date').click(function() {
+            $('#date-input').val('').trigger('change'); // Kosongkan input dan trigger event change
+        });
+
+        // Menangani perubahan tanggal
+        $('#date-input').change(function() {
+            const date = $(this).val();
+            if (date) {
+            loadData(date); // Memuat data berdasarkan tanggal jika ada
+            } else {
+            loadData(); // Memuat data tanpa parameter tanggal jika kosong
+            }
         });
 
         // Memuat data pertama kali dengan tahun default
